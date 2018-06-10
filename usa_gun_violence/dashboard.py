@@ -65,22 +65,30 @@ layout = html.Div([
         id='example-graph',
         figure={
             'layout': {
+                'barmode': 'stack',
                 'title': 'Gun violence evolution between 2013 and 2017 in the USA',
                 'height': 500,
-                'width': 850
+                'width': 850,
+                'xaxis': {
+                    'tickformat': 'd',
+                }
             },
             'data': [
                 {
-                    'x': nb_injured_and_killed_by_year.n_injured.index,
+                    'x': nb_injured_and_killed_by_year.n_injured.index.astype(str),
                     'y': nb_injured_and_killed_by_year.n_injured,
                     'type': 'bar',
-                    'name': 'People injured'
+                    'name': 'People injured',
+                    'opacity': 0.6,
+                    'width': 0.5,
                 },
                 {
-                    'x': nb_injured_and_killed_by_year.n_killed.index,
+                    'x': nb_injured_and_killed_by_year.n_killed.index.astype(str),
                     'y': nb_injured_and_killed_by_year.n_killed,
                     'type': 'bar',
-                    'name': 'People killed'
+                    'name': 'People killed',
+                    'opacity': 0.6,
+                    'width': 0.5,
                 },
             ]
         }
