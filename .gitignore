@@ -1,0 +1,5 @@
+*.pyc
+.DS_Store
+.env
+.idea
+resources/gun-violence-data_01-2013_03-2018.csv
