@@ -1,7 +1,6 @@
 import dash_core_components as dcc
 import dash_html_components as html
 from dash.dependencies import Input, Output
-import pandas as pd
 
 from app import app
 from usa_gun_violence.datareader import DataReader, usa_states
@@ -9,11 +8,6 @@ from usa_gun_violence.datareader import DataReader, usa_states
 gun_violence_data_reader = DataReader()
 nb_injured_and_killed_by_year = gun_violence_data_reader.get_nb_injured_and_killed_by_year()
 nb_injured_and_killed_by_state = gun_violence_data_reader.get_nb_injured_and_killed_by_state()
-
-df = pd.read_csv('https://raw.githubusercontent.com/plotly/datasets/master/2011_us_ag_exports.csv')
-
-for col in df.columns:
-    df[col] = df[col].astype(str)
 
 colorscale = [[0.0, 'rgb(242,240,247)'], [0.2, 'rgb(218,218,235)'], [0.4, 'rgb(188,189,220)'],
        [0.6, 'rgb(158,154,200)'], [0.8, 'rgb(117,107,177)'], [1.0, 'rgb(84,39,143)']]
